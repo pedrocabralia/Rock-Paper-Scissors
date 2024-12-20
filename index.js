@@ -2,14 +2,55 @@ humanScore = 0
 computerScore = 0
 function getHumanChoice(){
 
+    const pedra = document.getElementById("pedra");
 
-    escolha =   prompt("Pedra, Papel ou Tesoura?")
-   
-   return escolha.toLowerCase();
+    pedra.addEventListener("click",function(){
+
+         const escolha = document.getElementById("escolha-homem");
+         const img = document.createElement("img");
+         img.src = "img/pedra.png";
+         img.style.width = "150px";
+         img.style.height = "150px";
+         escolha.appendChild(img)
+
+    })
+
+
+    const papel = document.getElementById("papel");
+
+    papel.addEventListener("click",function(){
+
+         const escolha = document.getElementById("escolha-homem");
+         const img = document.createElement("img");
+         img.src = "img/papel.png";
+         img.style.width = "150px";
+         img.style.height = "150px";
+         escolha.appendChild(img)
+
+    })
+    
+    
+    const tesoura = document.getElementById("tesoura");
+
+    tesoura.addEventListener("click",function(){
+
+         const escolha = document.getElementById("escolha-homem");
+         const img = document.createElement("img");
+         img.src = "img/tesoura.png";
+         img.style.width = "150px";
+         img.style.height = "150px";
+         escolha.appendChild(img)
+
+    })
+
+
+
+
+  
 }
+getHumanChoice();
 
-
-
+/*
 
 function getComputerChoice(){
 
@@ -106,4 +147,4 @@ for (i = 0 ; i<=4; i++){
 
 
 
-
+* */
