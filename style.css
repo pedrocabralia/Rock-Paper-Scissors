@@ -44,6 +44,7 @@ div{
     display: flex;
     height: 100%;
     justify-content: center;
+   
 
 
 
@@ -54,6 +55,18 @@ button{
     margin-top: 50px;
     padding: 25px;
     background-color: blue;
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+#reiniciar-jogo{
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 25px;
+    background-color: red;
     color: white;
     font-weight: bold;
     border-radius: 25px;

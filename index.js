@@ -48,7 +48,91 @@ function getHumanChoice(){
 
   
 }
+
+
+
+function getRoboChoice(){
+
+    const seleçãoRobo = document.getElementById("seleção-robo");
+    
+    seleçãoRobo.addEventListener("click",function(){
+
+     
+        let valor = Math.floor(Math.random() * 3) + 1;
+
+        
+
+        if(valor ==1){
+
+
+         const escolha = document.getElementById("escolha-robo");
+         const img = document.createElement("img");
+         img.src = "img/pedra.png";
+         img.style.width = "150px";
+         img.style.height = "150px";
+         escolha.appendChild(img)
+
+
+
+        }
+
+        else if(valor == 2){
+
+            const escolha = document.getElementById("escolha-robo");
+            const img = document.createElement("img");
+            img.src = "img/papel.png";
+            img.style.width = "150px";
+            img.style.height = "150px";
+            escolha.appendChild(img)
+
+
+
+        }
+
+
+        else{
+
+
+            const escolha = document.getElementById("escolha-robo");
+            const img = document.createElement("img");
+            img.src = "img/tesoura.png";
+            img.style.width = "150px";
+            img.style.height = "150px";
+            escolha.appendChild(img)
+
+
+
+        }
+
+
+    })
+    
+
+
+
+  
+}
+
+
+function reiniciar(){
+
+    reiniciar = document.getElementById("reiniciar-jogo")
+
+    reiniciar.addEventListener("click",function(){
+
+        location.reload()
+    })
+
+
+
+}
+
 getHumanChoice();
+getRoboChoice();
+reiniciar();
+
+
+
 
 /*
 
