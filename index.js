@@ -1,234 +1,83 @@
-humanScore = 0
-computerScore = 0
-function getHumanChoice(){
+let humanScore = 0;
+let computerScore = 0;
+let valorEscolhaHumano = 0;
+let valorEscolhaRobo = 0;
 
+function getHumanChoice() {
     const pedra = document.getElementById("pedra");
-
-    pedra.addEventListener("click",function(){
-
-         const escolha = document.getElementById("escolha-homem");
-         const img = document.createElement("img");
-         img.src = "img/pedra.png";
-         img.style.width = "150px";
-         img.style.height = "150px";
-         escolha.appendChild(img)
-
-    })
-
-
     const papel = document.getElementById("papel");
-
-    papel.addEventListener("click",function(){
-
-         const escolha = document.getElementById("escolha-homem");
-         const img = document.createElement("img");
-         img.src = "img/papel.png";
-         img.style.width = "150px";
-         img.style.height = "150px";
-         escolha.appendChild(img)
-
-    })
-    
-    
     const tesoura = document.getElementById("tesoura");
 
-    tesoura.addEventListener("click",function(){
+    pedra.addEventListener("click", () => escolherHumano("pedra", 1));
+    papel.addEventListener("click", () => escolherHumano("papel", 2));
+    tesoura.addEventListener("click", () => escolherHumano("tesoura", 3));
+}
 
-         const escolha = document.getElementById("escolha-homem");
-         const img = document.createElement("img");
-         img.src = "img/tesoura.png";
-         img.style.width = "150px";
-         img.style.height = "150px";
-         escolha.appendChild(img)
+function escolherHumano(tipo, valor) {
+    limparEscolha("escolha-homem");
+    const escolha = document.getElementById("escolha-homem");
+    const img = document.createElement("img");
+    img.src = `img/${tipo}.png`;
+    img.style.width = "150px";
+    img.style.height = "150px";
+    escolha.appendChild(img);
+    valorEscolhaHumano = valor;
 
-    })
+    getRoboChoice();
+}
 
+function getRoboChoice() {
+    limparEscolha("escolha-robo");
 
+    let valor = Math.floor(Math.random() * 3) + 1;
+    let tipo;
 
+    if (valor === 1) tipo = "pedra";
+    if (valor === 2) tipo = "papel";
+    if (valor === 3) tipo = "tesoura";
 
-  
+    const escolha = document.getElementById("escolha-robo");
+    const img = document.createElement("img");
+    img.src = `img/${tipo}.png`;
+    img.style.width = "150px";
+    img.style.height = "150px";
+    escolha.appendChild(img);
+    valorEscolhaRobo = valor;
+
+    verificarVencedor();
+}
+
+function verificarVencedor() {
+    if (valorEscolhaHumano === valorEscolhaRobo) {
+        alert("Empate!");
+    } else if (
+        (valorEscolhaHumano === 1 && valorEscolhaRobo === 3) || // Pedra vence Tesoura
+        (valorEscolhaHumano === 2 && valorEscolhaRobo === 1) || // Papel vence Pedra
+        (valorEscolhaHumano === 3 && valorEscolhaRobo === 2)    // Tesoura vence Papel
+    ) {
+        alert("Você venceu!");
+        humanScore++;
+    } else {
+        alert("Robô venceu!");
+        computerScore++;
+    }
+
+    
+}
+
+function limparEscolha(elementId) {
+    const escolha = document.getElementById(elementId);
+    escolha.innerHTML = "";
 }
 
 
 
-function getRoboChoice(){
-
-    const seleçãoRobo = document.getElementById("seleção-robo");
-    
-    seleçãoRobo.addEventListener("click",function(){
-
-     
-        let valor = Math.floor(Math.random() * 3) + 1;
-
-        
-
-        if(valor ==1){
-
-
-         const escolha = document.getElementById("escolha-robo");
-         const img = document.createElement("img");
-         img.src = "img/pedra.png";
-         img.style.width = "150px";
-         img.style.height = "150px";
-         escolha.appendChild(img)
-
-
-
-        }
-
-        else if(valor == 2){
-
-            const escolha = document.getElementById("escolha-robo");
-            const img = document.createElement("img");
-            img.src = "img/papel.png";
-            img.style.width = "150px";
-            img.style.height = "150px";
-            escolha.appendChild(img)
-
-
-
-        }
-
-
-        else{
-
-
-            const escolha = document.getElementById("escolha-robo");
-            const img = document.createElement("img");
-            img.src = "img/tesoura.png";
-            img.style.width = "150px";
-            img.style.height = "150px";
-            escolha.appendChild(img)
-
-
-
-        }
-
-
-    })
-    
-
-
-
-  
-}
-
-
-function reiniciar(){
-
-    reiniciar = document.getElementById("reiniciar-jogo")
-
-    reiniciar.addEventListener("click",function(){
-
-        location.reload()
-    })
-
-
-
+function reiniciar() {
+    const botaoReiniciar = document.getElementById("reiniciar-jogo");
+    botaoReiniciar.addEventListener("click", () => {
+        location.reload();
+    });
 }
 
 getHumanChoice();
-getRoboChoice();
 reiniciar();
-
-
-
-
-/*
-
-function getComputerChoice(){
-
-    const randonInt = Math.floor(Math.random() * 3);
-
-    if(randonInt == 0){
-
-       saida = "pedra"
-       return saida
-    }
-
-    else if(randonInt == 1){
-        saida = "papel"
-        return saida
-    }
-
-    else{
-        saida = "tesoura"
-        return saida
-    }
-
-    
-
-    
-
-}
-function playRound(humanChoice,computerChoice){
-   
-    
-
-    
-
-    if(humanChoice == computerChoice){
-        alert("empate "+ humanChoice + computerChoice)
-        alert("Pontuação Humanos: "+humanScore + "Pontuação Computador: "+computerScore)
-    }
-
-    else if(humanChoice == "pedra" && computerChoice == "tesoura"){
-        alert("Humanos vencem: "+" Humanos: "+ humanChoice + " PC: " + computerChoice)
-        humanScore = humanScore + 1
-        alert("Pontuação Humanos: "+humanScore + "Pontuação Computador: "+computerScore)
-
-    }
-
-    else if(humanChoice == "tesoura" && computerChoice == "papel"){
-        alert(" Humanos vencem: "+" Humanos: "+ humanChoice + " PC: " + computerChoice)
-        humanScore = humanScore + 1
-        alert("Pontuação Humanos: "+humanScore + "Pontuação Computador: "+computerScore)
-
-    }
-
-    else if(humanChoice == "papel" && computerChoice == "pedra"){
-        alert("Humanos vencem: "+" Humanos: "+ humanChoice + " PC: " + computerChoice)
-        humanScore = humanScore + 1
-        alert("Pontuação Humanos: "+humanScore + "Pontuação Computador: "+computerScore)
-
-    }
-
-    else{
-
-        alert("Computadores vencem: "+ " Pc: "+computerChoice + " Humanos: " + humanChoice )
-        computerScore = computerScore + 1
-        alert("Pontuação Humanos: "+humanScore + "Pontuação Computador: "+computerScore)
-
-    }
-
-
-
-}
-
-function playGame(playRound){
- 
-  
-
-    const playRounds = playRound(humanSelection,computerSelection)
-
-    
-  
-
-
-}
-
-for (i = 0 ; i<=4; i++){
-
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-
-    playGame(playRound)
-
-
-
-}
-
-
-
-
-* */
