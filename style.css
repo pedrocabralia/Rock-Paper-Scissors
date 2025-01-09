@@ -1,55 +1,53 @@
-body{
-
+body {
+    margin: 0;
+    padding: 0;
     display: flex;
-    height: 75vh;
-}
-
-div{
-    text-align: center;
-    width: 45%;
-    font-size: 20px;
+    height: 100vh;
+    width: 100vw;
     border: 1px solid black;
-   
+    gap: 10px; /* Espaçamento entre as seções */
 }
 
-.seleção{
+#escolher {
+    border: 1px solid black;
+    text-align: center;
+    width: 35%;
+    height: 100%;
+}
 
+.seleção {
     width: 150px;
     height: 150px;
     cursor: pointer;
     margin-left: 50px;
-   
     padding: 25px;
+    max-width: 150px;
+    max-height: 150px;
 }
 
-#robo{
-
-    width: 70px;
-    height: 70px;
-    display: inline;
-   
-
+.seleção:hover {
+    background-color: darkgrey;
 }
 
-
-.seleção:hover{
-
-
-        background-color: darkgrey;
-
-}
-
-#placar{
-
-    display: flex;
+#escolhas {
     height: 100%;
+    width: 35%;
+    border: 1px solid black;
+    display: flex;
     justify-content: center;
-   
-
-
-
 }
-button{
+
+#escolha-homem,
+#escolha-robo {
+    display: flex;
+    flex-direction: column; /* Alinha título e imagem verticalmente */
+    align-items: center;
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+}
+
+button {
     display: block;
     margin: 0 auto;
     margin-top: 50px;
@@ -61,14 +59,42 @@ button{
     cursor: pointer;
 }
 
-#reiniciar-jogo{
-    display: block;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding: 25px;
+#reiniciar-jogo {
     background-color: red;
-    color: white;
-    font-weight: bold;
-    border-radius: 25px;
-    cursor: pointer;
+}
+
+#placar table {
+    width: 100%;
+    font-size: 30px;
+    border-collapse: collapse; /* Junta as bordas */
+}
+
+#placar th,
+#placar td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+#placar {
+    text-align: center;
+    width: 35%;
+    height: 100%;
+}
+
+h1 {
+    margin-left: 50px;
+    padding: 10px;
+}
+
+p {
+    padding: 10px;
+}
+#escolha-homem, #escolha-robo {
+    text-align: center;
+}
+
+#escolha-homem img, #escolha-robo img {
+    display: block;
+    margin: 10px auto 0;
 }

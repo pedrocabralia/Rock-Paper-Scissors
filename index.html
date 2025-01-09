@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div>
+    <div id="escolher">
 
         <h1>PEDRA PAPEL E TESOURA</h1>
         <p>Selecione sua opção:</p>
@@ -17,33 +17,48 @@
             <img src="img/papel.png" alt="" class="seleção"   id="papel">
             <img src="img/tesoura.png" alt="" class="seleção" id="tesoura">
 
-    </div>
+     </div>
 
-    <div id="placar">
-      
+    <div id="escolhas">
+          
           <div id="escolha-homem">
             <h2>HUMANO</h2>
 
+            </div>
 
-          </div>
+            
+          
 
+           
 
           <div id="escolha-robo">
             <h2>ROBÔ</h2>
-            
-
-          </div>
            
+
+
+            </div>
+
+         
+        </div>
 
 
     </div>
 
 
-    <div>
+    <div id="placar">
 
-        <img src="img/robo.png" alt="" id="robo">
-        
-        <button id="seleção-robo">SELECIONAR</button>   
+        <h1>Placar</h1>
+        <table>
+          <tr>
+              <th>ROBÔ</th>
+              <th>HUMANO</th>
+          </tr>
+          <tr>
+              <th id="pontuacaoRobo"></th>
+              <th id="pontuacaoHumano"></th>
+
+          </tr>
+        </table>
 
         <button id="reiniciar-jogo">REINICIAR JOGO</button>
     </div>

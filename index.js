@@ -17,9 +17,12 @@ function escolherHumano(tipo, valor) {
     limparEscolha("escolha-homem");
     const escolha = document.getElementById("escolha-homem");
     const img = document.createElement("img");
+    
     img.src = `img/${tipo}.png`;
-    img.style.width = "150px";
-    img.style.height = "150px";
+    img.style.width = "100px";
+    img.style.height = "100px";
+    img.style.marginTop = "10px"; 
+    img.style.display = "block"
     escolha.appendChild(img);
     valorEscolhaHumano = valor;
 
@@ -39,8 +42,8 @@ function getRoboChoice() {
     const escolha = document.getElementById("escolha-robo");
     const img = document.createElement("img");
     img.src = `img/${tipo}.png`;
-    img.style.width = "150px";
-    img.style.height = "150px";
+    img.style.width = "100px";
+    img.style.height = "100px";
     escolha.appendChild(img);
     valorEscolhaRobo = valor;
 
@@ -49,16 +52,16 @@ function getRoboChoice() {
 
 function verificarVencedor() {
     if (valorEscolhaHumano === valorEscolhaRobo) {
-        alert("Empate!");
+        
     } else if (
         (valorEscolhaHumano === 1 && valorEscolhaRobo === 3) || // Pedra vence Tesoura
         (valorEscolhaHumano === 2 && valorEscolhaRobo === 1) || // Papel vence Pedra
         (valorEscolhaHumano === 3 && valorEscolhaRobo === 2)    // Tesoura vence Papel
     ) {
-        alert("Você venceu!");
+       
         humanScore++;
     } else {
-        alert("Robô venceu!");
+        
         computerScore++;
     }
 
@@ -67,7 +70,10 @@ function verificarVencedor() {
 
 function limparEscolha(elementId) {
     const escolha = document.getElementById(elementId);
-    escolha.innerHTML = "";
+
+    // Remove apenas as imagens, preservando o H2
+    const imgs = escolha.querySelectorAll("img");
+    imgs.forEach((img) => img.remove());
 }
 
 
